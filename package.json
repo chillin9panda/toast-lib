@@ -5,10 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/toast.d.ts",
   "scripts": {
-    "build:css": "sass src/toast.scss dist/toast.css --style=compressed --no-source-map",
+    "build:css": "sass src/style/toast.sass dist/toast.css --style=compressed --no-source-map",
     "build:ts": "tsc",
     "build": "npm run build:css && npm run build:ts",
-    "watch": "tsc --watch & sass --watch src/toast.scss:dist/toast.css"
+    "watch": "tsc --watch & sass --watch src/style/toast.sass:dist/toast.css"
   },
   "keywords": [
     "toast",
