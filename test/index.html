@@ -8,7 +8,24 @@
 </head>
 
 <body>
-  <button onclick="showToast({ message: 'Hello from toast!', type: 'success' })">Show Toast</button>
+  <button onclick="showToast({ message: 'Normal toast message', type: 'normal' })">Normal Toast</button>
+  <button onclick="showToast({ message: 'Warning toast message', type: 'warning' })">Warning Toast</button>
+  <button onclick="showToast({ message: 'Error toast message', type: 'error' })">Error Toast</button>
+  <button onclick="showToast({ message: 'Success Toast message', type: 'success' })">Success Toast</button>
+
+
+  <button
+    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'top-left' })">Top-Left</button>
+  <button
+    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'top-center' })">Top-Center</button>
+  <button
+    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'top-right' })">Top-Right</button>
+  <button
+    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'bottom-left' })">Bottom-Left</button>
+  <button
+    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'bottom-center' })">Bottom-Center</button>
+  <button
+    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'bottom-right' })">Bottom-Right</button>
 
   <script src="../dist/toast.js"></script>
 </body>

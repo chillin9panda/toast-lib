@@ -1,45 +1,84 @@
+// Position container
+$toast-z-index: 9999
+$toast-padding: 1rem
+$toast-gap: 0.5rem
+$toast-radius: 8px
+$toast-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+$toast-min-width: 200px
+
 .toast-container
   position: fixed
-  top: 1rem
-  right: 1rem
+  z-index: $toast-z-index
   display: flex
   flex-direction: column
-  gap: 0.5rem
-  z-index: 9999
+  gap: $toast-gap
+  padding: $toast-padding
+  pointer-events: none
+
+  &.top-left
+    top: 1rem
+    left: 1rem
+    align-items: flex-start
+
+  &.top-center
+    top: 1rem
+    left: 50%
+    transform: translateX(-50%)
+    align-items: center
+
+  &.top-right
+    top: 1rem
+    right: 1rem
+    align-items: flex-end
+
+  &.bottom-left
+    bottom: 1rem
+    left: 1rem
+    align-items: flex-start
+
+  &.bottom-center
+    bottom: 1rem
+    left: 50%
+    transform: translateX(-50%)
+    align-items: center
+
+  &.bottom-right
+    bottom: 1rem
+    right: 1rem
+    align-items: flex-end
 
 .toast
-  display: flex
-  align-items: center
-  gap: 0.5rem
   background: white
   color: black
-  border-left: 4px solid #333
-  padding: 1rem
-  min-width: 250px
-  border-radius: 8px
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
-  font-family: sans-serif
-  position: relative
-  animation: fadeIn 0.3s ease-out
+  padding: 0.75rem 1rem
+  border-radius: $toast-radius
+  box-shadow: $toast-shadow
+  pointer-events: all
+  display: flex
+  justify-content: space-between
+  align-items: center
+  gap: 1rem
+  min-width: $toast-min-width
 
-.toast.success
-  border-color: green
+  &.success
+    background: #4caf50
+    color: white
 
-.toast.error
-  border-color: red
+  &.error
+    background: #f44336
+    color: white
 
-.toast.warning
-  border-color: orange
+  &.warning
+    background: #ff9800
+    color: white
 
-.toast .close-btn
-  position: absolute
-  right: 0.5rem
-  top: 0.5rem
-  background: transparent
-  border: none
-  font-size: 1.2rem
-  cursor: pointer
-
+  .toast-close
+    background: transparent
+    border: none
+    color: inherit
+    font-weight: bold
+    cursor: pointer
+    
 @keyframes fadeIn
   from
     opacity: 0
@@ -47,3 +86,5 @@
   to
     opacity: 1
     transform: translateY(0)
+
+
