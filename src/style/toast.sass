@@ -1,0 +1,49 @@
+.toast-container
+  position: fixed
+  top: 1rem
+  right: 1rem
+  display: flex
+  flex-direction: column
+  gap: 0.5rem
+  z-index: 9999
+
+.toast
+  display: flex
+  align-items: center
+  gap: 0.5rem
+  background: white
+  color: black
+  border-left: 4px solid #333
+  padding: 1rem
+  min-width: 250px
+  border-radius: 8px
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  font-family: sans-serif
+  position: relative
+  animation: fadeIn 0.3s ease-out
+
+.toast.success
+  border-color: green
+
+.toast.error
+  border-color: red
+
+.toast.warning
+  border-color: orange
+
+.toast .close-btn
+  position: absolute
+  right: 0.5rem
+  top: 0.5rem
+  background: transparent
+  border: none
+  font-size: 1.2rem
+  cursor: pointer
+
+@keyframes fadeIn
+  from
+    opacity: 0
+    transform: translateY(-10px)
+  to
+    opacity: 1
+    transform: translateY(0)
