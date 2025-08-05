@@ -8,24 +8,32 @@
 </head>
 
 <body>
-  <button onclick="showToast({ message: 'Normal toast message', type: 'normal' })">Normal Toast</button>
+  <button onclick="showToast({ message: 'Normal toast message', type: 'default' })">Normal Toast</button>
   <button onclick="showToast({ message: 'Warning toast message', type: 'warning' })">Warning Toast</button>
   <button onclick="showToast({ message: 'Error toast message', type: 'error' })">Error Toast</button>
   <button onclick="showToast({ message: 'Success Toast message', type: 'success' })">Success Toast</button>
 
 
   <button
-    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'top-left' })">Top-Left</button>
+    onclick="showToast({ message: 'Position toast message', type: 'default', position: 'top-left' })">Top-Left</button>
   <button
-    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'top-center' })">Top-Center</button>
+    onclick="showToast({ message: 'Position toast message', type: 'default', position: 'top-center' })">Top-Center</button>
   <button
-    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'top-right' })">Top-Right</button>
+    onclick="showToast({ message: 'Position toast message', type: 'default', position: 'top-right' })">Top-Right</button>
   <button
-    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'bottom-left' })">Bottom-Left</button>
+    onclick="showToast({ message: 'Position toast message', type: 'default', position: 'bottom-left' })">Bottom-Left</button>
   <button
-    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'bottom-center' })">Bottom-Center</button>
+    onclick="showToast({ message: 'Position toast message', type: 'default', position: 'bottom-center' })">Bottom-Center</button>
   <button
-    onclick="showToast({ message: 'Position toast message', type: 'normal', position: 'bottom-right' })">Bottom-Right</button>
+    onclick="showToast({ message: 'Position toast message', type: 'default', position: 'bottom-right' })">Bottom-Right</button>
+
+
+  <button
+    onclick="showToast({ message: 'Theme toast message', type: 'default', position: 'bottom-right', theme: 'dark' })">Dark
+    Theme</button>
+  <button
+    onclick="showToast({ message: 'Theme toast message', type: 'default', position: 'bottom-right', theme: 'light' })">Light
+    Theme</button>
 
   <script src="../dist/toast.js"></script>
 </body>

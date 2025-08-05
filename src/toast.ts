@@ -1,5 +1,5 @@
 import { BadgeCheck, createElement, Info, TriangleAlert, X, XCircle, type IconNode } from "lucide";
-import type { ToastPosition, ToastTypes } from "./types";
+import type { ToastPosition, ToastTheme, ToastTypes } from "./types";
 
 let container = document.querySelector(".toast-container");
 
@@ -14,6 +14,7 @@ interface ToastOptions {
   type?: ToastTypes;
   duration?: number;
   position?: ToastPosition;
+  theme?: ToastTheme;
 }
 
 function getContainer(position: ToastPosition): HTMLElement {
@@ -45,11 +46,11 @@ function getIcon(type: ToastTypes = "default") {
   return createElement(iconNode, { size: 20 });
 }
 
-export function showToast({ message, type = "default", duration = 5000, position = "bottom-right" }: ToastOptions) {
+export function showToast({ message, type = "default", duration = 5000, position = "bottom-right", theme = "dark" }: ToastOptions) {
   const container = getContainer(position);
 
   const toast = document.createElement("div");
-  toast.className = `toast ${type}`;
+  toast.className = `toast ${type} ${theme}`;
   container.appendChild(toast);
 
   const icon = getIcon(type);
