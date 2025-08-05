@@ -109,4 +109,36 @@ export function showToast({ message, type = "default", duration = 5000, position
   });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const autoToasts = document.querySelectorAll<HTMLElement>(".toast-auto");
+
+  autoToasts.forEach((el) => {
+    const message = el.dataset.message;
+    if (!message) return;
+
+    const validTypes = ["success", "error", "warning", "default"] as const;
+    const rawType = el.dataset.type;
+    const type = validTypes.includes(rawType as any) ? (rawType as typeof validTypes[number]) : "default";
+
+
+    const validPositions = ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"] as const;
+    const rawPosition = el.dataset.position;
+    const position = validTypes.includes(rawType as any) ? (rawPosition as typeof validPositions[number]) : "bottom-left";
+
+    const validThemes = ["light", "dark"] as const;
+    const rawTheme = el.dataset.theme;
+    const theme = validTypes.includes(rawType as any) ? (rawTheme as typeof validThemes[number]) : "dark";
+
+    const duration: number = el.dataset.duration ? parseInt(el.dataset.duration) : 5000;
+
+    showToast({
+      message,
+      type: type,
+      position: position,
+      theme: theme,
+      duration: duration
+    });
+  });
+});
+
 (window as any).showToast = showToast;
