@@ -72,14 +72,41 @@ export function showToast({ message, type = "default", duration = 5000, position
 
   toast.appendChild(closeBtn);
 
-  const timeout = setTimeout(() => {
+  let timeout: number;
+  let startTime: number;
+  let remaining: number = duration;
+
+  const removeToast = () => {
     toast.remove();
-  }, duration);
+  };
+
+  const startTimer = () => {
+    startTime = Date.now();
+    timeout = window.setTimeout(removeToast, duration);
+  };
+
+  const pauseTimer = () => {
+    clearTimer();
+    const elapsed: number = Date.now() - startTime;
+    remaining -= elapsed;
+  };
+
+  const clearTimer = () => {
+    clearTimeout(timeout);
+  };
+
+  startTimer();
 
   closeBtn.onclick = () => {
-    clearTimeout(timeout);
-    toast.remove();
+    clearTimer();
+    removeToast();
   }
+
+  toast.addEventListener("mouseenter", pauseTimer);
+  toast.addEventListener("mouseleave", () => {
+    clearTimer();
+    startTimer();
+  });
 }
 
 (window as any).showToast = showToast;
