@@ -6,7 +6,7 @@
     "outDir": "./dist",
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "ES6",
+    "module": "esnext",
     "target": "ES6",
     "types": [],
     // For nodejs:
@@ -40,6 +40,6 @@
     "esModuleInterop": true
   },
   "include": [
-    "src"
+    "src/**/*"
   ]
 }
