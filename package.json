@@ -8,7 +8,8 @@
     "build:css": "sass src/style/toast.sass dist/toast.css --style=compressed --no-source-map",
     "build:ts": "tsc",
     "build": "npm run build:css && npm run build:ts",
-    "watch": "tsc --watch & sass --watch src/style/toast.sass:dist/toast.css"
+    "watch": "tsc --watch & sass --watch src/style/toast.sass:dist/toast.css",
+    "dev": "concurrently \"esbuild src/toast.ts --bundle --outfile=dist/toast.js --watch\" \"sass --watch src/style/toast.sass:dist/toast.css\""
   },
   "keywords": [
     "toast",
@@ -22,6 +23,7 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
+    "concurrently": "^9.2.0",
     "esbuild": "^0.25.8",
     "sass": "^1.89.2",
     "typescript": "^5.9.2"
